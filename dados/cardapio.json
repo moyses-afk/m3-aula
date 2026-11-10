@@ -1,0 +1,11 @@
+{
+  "dados": [
+    { "id": 1, "nome": "x-burguer", "preco_centavos": 1890, "categoria": "lanche" },
+    { "id": 2, "nome": "x-salada", "preco_centavos": 2090, "categoria": "lanche" },
+    { "id": 3, "nome": "batata frita", "preco_centavos": 1200, "categoria": "porção" },
+    { "id": 4, "nome": "suco de caju", "preco_centavos": 750, "categoria": "bebida" },
+    { "id": 5, "nome": "refrigerante lata", "preco_centavos": 600, "categoria": "bebida" }
+  ],
+  "total": 5,
+  "pagina": 1
+}
