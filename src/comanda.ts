@@ -1,9 +1,18 @@
+import { error } from "console";
+import { errorMonitor } from "events";
+
 export class ItemComomanda {
-    nome: string;
-    precocentavos: number;
-    quantidada: number;
+    readonly nome: string;
+    readonly precocentavos: number;
+    readonly quantidada: number;
 
     constructor(nome: string, precocentavos: number, quantidade: number){
+        if (precocentavos < 0) {
+            throw new Error("preco negativo em " + nome)
+        }
+        if (quantidade <= 0) {
+            throw new Error("quatidade precisa ser maior que zero em" + nome)
+        }
         this.nome = nome
         this.precocentavos = precocentavos
         this.quantidada = quantidade
@@ -15,18 +24,21 @@ export class ItemComomanda {
 }
 
 export class Comanda {
-    mesa: Number;
-    itens: ItemComomanda[] = [];
-    aberta: boolean = true
+    readonly mesa: Number;
+    private itens: ItemComomanda[] = [];
+    private aberta: boolean = true
 
     constructor(mesa: number){
         this.mesa = mesa;
     }
     
-    adicionar(itens: ItemComomanda): void{
+    adicionar(itens: ItemComomanda): boolean
+    {
         if (this.aberta === true) {
             this.itens.push(itens)
+            return true
         }
+        return false
     }
 
     total(): number{
